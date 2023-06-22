@@ -13,7 +13,7 @@ import {
 
 
 export default function Books() {
-  const {hits, query } = useGlobalContext();
+  const {hits, query, searchApplied } = useGlobalContext();
   
 
   return (
@@ -46,7 +46,9 @@ export default function Books() {
          <TableBody>
           
             {
-            query ? (hits.map((curPost) =>{
+            // query.length > 1 ?
+            searchApplied ? 
+            (hits.map((curPost) =>{
 
           const{title, author, objectID,  points, num_comments} = curPost;
             return <> 
@@ -64,8 +66,11 @@ export default function Books() {
                     
                       </>
              })):(
-              <p>No Data Available</p>
+              <TableRow>
+              <TableCell colSpan={5}>No data</TableCell>
+              </TableRow>
              )} 
+            
             </TableBody>
  
       </Table>
