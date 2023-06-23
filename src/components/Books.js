@@ -46,7 +46,7 @@ export default function Books() {
          <TableBody>
           
             {
-            // query.length > 1 ?
+           
             searchApplied ? 
             (hits.map((curPost) =>{
 
